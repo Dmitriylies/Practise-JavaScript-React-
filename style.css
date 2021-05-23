@@ -1,0 +1,22 @@
+.wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: rgb(148, 148, 148);
+    padding: 10px;
+}
+.btn {
+    width: 75px;
+    height: 30px;
+    padding: 0;
+    margin: 20px 2px 20px 0 ;
+    border: 0;
+    background: rgb(228, 213, 0);
+}
+.btn:first-child{
+background: rgb(3, 7, 252);
+}
+.green {
+background: rgb(0, 255, 0);
+}
