@@ -1,35 +1,35 @@
-const btn = document.querySelector('.btn');
-let timeId,
-    i = 0;
+'use strict';
+class Rectangle {
+    constructor(height, width) {
+        this.height = height;
+        this.width = width;
+    }                                       //концепция
 
-function myAnimation() {
-    const elem = document.querySelector('.box');
-    let pos = 0;
-
-    const id = setInterval(frame, 10);
-    function frame() {
-        if (pos == 300) {
-            clearInterval();
-        }else {
-            pos++;
-            elem.style.top = pos + "px";
-            elem.style.left = pos + "px";
-        }
+    calcArea() {
+        return this.height * this.width;
     }
 }
 
-btn.addEventListener('click', myAnimation);
+class ColoredRectangleWithText extends Rectangle{
+    constructor(height, width, text, bgColor) {
+        super(height, width);
+        this.text = text;
+        this.bgColor = bgColor;
+    }
+
+    showMyProps() {
+        console.log(`Текст: ${this.text}, цвет:${this.bgColor}`);
+    }
+}
+
+const div = new ColoredRectangleWithText(25, 10, 'hello', 'red');
+
+div.showMyProps();
+console.log(div.calcArea());
 
 
-// function logger() {
-//     if (i === 3) {
-//         clearInterval(timeId);
-//     }
-//     console.log('hello');
-//     i++;
-// }
+const square = new Rectangle(10, 10);      //экземпляры
+const long = new Rectangle(10, 32);
 
-// let id = setTimeout(function log() {
-//     console.log('hello');
-//    id = setTimeout(log, 1000); 
-// }, 1000);
+console.log(square.calcArea());
+console.log(long.calcArea());
