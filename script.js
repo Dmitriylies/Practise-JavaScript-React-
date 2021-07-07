@@ -1,25 +1,21 @@
 'use strict';
 
-const app = '123';
+const wrap = document.querySelector('.wrapper');
+const box = document.querySelector('.redbox');
+let start = 0;
 
-const number = 1;
 
-(function(){
-    let number = 2;
-    console.log(number);
-    console.log(number + 3);
-}());
+function animation(){
+    start++;
+    box.style.top = start + 'px';
+    box.style.left = start + 'px';
 
-console.log(number);
+    if (start < 300) {
+        requestAnimationFrame(animation);
+    }
+}
+box.addEventListener('click', () => requestAnimationFrame(animation));
 
-const user = (function(){
-    const privat = function() {
-        console.log('I`m privat!');
-    };
-    return {
-        sayHello: privat
-    };
+let id = requestAnimationFrame(animation);
 
-}());
-
-user.sayHello();
+cancelAnimationFrame(id);
